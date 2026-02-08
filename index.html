@@ -1,87 +1,686 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Knowledge Public School Multan</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Knowledge Public School - Taha Campus</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #1a4d8f;
+            --secondary-color: #f9a826;
+            --accent-color: #2e7d32;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+            --text-color: #444;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-info i {
+            margin-right: 5px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-left: 15px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 80px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            line-height: 1.2;
+        }
+
+        .logo-text h1 span {
+            color: var(--secondary-color);
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 77, 143, 0.85), rgba(46, 125, 50, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #e69500;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Admissions Section */
+        .admissions {
+            background-color: #f9f9f9;
+        }
+
+        .admissions-highlight {
+            text-align: center;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            box-shadow: var(--shadow);
+        }
+
+        .admissions-highlight h3 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .admissions-highlight p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .admissions-highlight .phone {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: block;
+            margin: 10px 0;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .program-icon {
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 2.5rem;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .program-content {
+            padding: 25px;
+        }
+
+        .program-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Campus Section */
+        .campus-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .campus-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background-color: white;
+        }
+
+        .campus-card-header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .campus-card-header h3 {
+            font-size: 1.8rem;
+        }
+
+        .campus-card-body {
+            padding: 30px;
+        }
+
+        .campus-image {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .campus-image.roots {
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .campus-image.wing {
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-column .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 130px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: white;
+                box-shadow: var(--shadow);
+                transition: left 0.3s;
+                padding: 20px;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .top-bar-container {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .admissions-highlight h3 {
+                font-size: 1.8rem;
+            }
+
+            .admissions-highlight .phone {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header Section -->
+    <header>
+        <div class="top-bar">
+            <div class="top-bar-container">
+                <div class="contact-info">
+                    <div><i class="fas fa-phone"></i> 0300-00521168</div>
+                    <div><i class="fas fa-phone"></i> 0002-0371919</div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="main-header">
+            <div class="logo-container">
+                <div class="logo-text">
+                    <h1>THE <span>KNOWLEDGE</span> PUBLIC SCHOOL</h1>
+                    <p>TAHA CAMPUS - Roots & Wing</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+                <li><a href="#campus">Our Campus</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <div class="logo">
-    <img src="logo.png" alt="The Knowledge Public School Logo">
-    <span>THE KNOWLEDGE PUBLIC SCHOOL</span>
-  </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>ADMISSIONS OPEN</h2>
+            <p>Playgroup to Matric - Quality Education for a Bright Future</p>
+            <a href="#admissions" class="cta-button">Apply Now</a>
+        </div>
+    </section>
 
-  <nav id="nav-menu">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#academics">Academics</a>
-    <a href="#admissions">Admissions</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Our School</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>The Knowledge Public School - Taha Campus</h3>
+                    <p>We are committed to providing quality education that nurtures young minds and prepares them for the challenges of the future. Our dedicated faculty and modern facilities create an environment where students can thrive academically, socially, and emotionally.</p>
+                    <p>With our Roots and Wing campuses, we offer a comprehensive educational experience from Playgroup all the way to Matriculation. Our holistic approach focuses on developing critical thinking, creativity, and character in every student.</p>
+                    <p>At The Knowledge Public School, we believe that every child has unique potential waiting to be unlocked. Our mission is to provide the guidance, resources, and environment needed for each student to soar to new heights.</p>
+                </div>
+                <div class="about-image">
+                    <div class="campus-image" style="height: 100%; background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-</header>
+    <!-- Admissions Section -->
+    <section class="admissions" id="admissions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Admissions</h2>
+            </div>
+            <div class="admissions-highlight">
+                <h3>ADMISSIONS OPEN FOR 2024-2025</h3>
+                <p>Playgroup to Matric</p>
+                <p>Contact us today to secure your child's future:</p>
+                <span class="phone">0300-00521168</span>
+                <span class="phone">0002-0371919</span>
+                <a href="#contact" class="cta-button" style="margin-top: 20px;">Inquire Now</a>
+            </div>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="program-content">
+                        <h4>Early Years</h4>
+                        <p>Playgroup, Nursery, and Kindergarten programs designed to foster curiosity and foundational skills in young learners.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <div class="program-content">
+                        <h4>Primary School</h4>
+                        <p>Grades 1-5 with a balanced curriculum focusing on academic excellence and character development.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="program-content">
+                        <h4>Middle School</h4>
+                        <p>Grades 6-8 with specialized subject teachers and exploratory learning opportunities.</p>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="program-content">
+                        <h4>Matriculation</h4>
+                        <p>Grades 9-10 preparing students for board examinations and future academic pursuits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- HERO SECTION -->
-<section class="hero" id="home" style="background-image:url('campus.jpg')">
-  <div class="hero-overlay">
-    <h1>The Knowledge Public School</h1>
-    <p>Roots of Knowledge · Wings to Success</p>
-    <a href="#admissions" class="btn">Admissions Open</a>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section" id="about">
-  <h2>About Us</h2>
-  <p>
-    The Knowledge Public School Multan is committed to academic excellence,
-    character building, and modern education. We provide a disciplined,
-    nurturing, and inspiring environment for students from Play Group to Matric.
-  </p>
-</section>
-
-<!-- ACADEMICS -->
-<section class="section dark" id="academics">
-  <h2>Academics</h2>
-  <div class="cards">
-    <div class="card">Play Group & Montessori</div>
-    <div class="card">Primary Section</div>
-    <div class="card">Middle Section</div>
-    <div class="card">Matric Program</div>
-  </div>
-</section>
-
-<!-- ADMISSIONS -->
-<section class="section" id="admissions">
-  <h2>Admissions</h2>
-  <p>
-    Admissions are open for all classes. Our admission process is simple,
-    transparent, and parent-friendly.
-  </p>
-  <a class="btn dark-btn">Apply Now</a>
-</section>
-
-<!-- CONTACT -->
-<section class="section dark" id="contact">
-  <h2>Contact Us</h2>
-  <form class="contact-form">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <textarea placeholder="Message"></textarea>
-    <button type="submit" class="btn">Send Message</button>
-  </form>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 The Knowledge Public School Multan. All Rights Reserved.</p>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+    <!-- Campus Section -->
+    <section class="campus" id="campus">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Campus</h2>
+            </div>
+            <div class="campus-container">
+                <div class="campus-card">
+                    <div class="cam
