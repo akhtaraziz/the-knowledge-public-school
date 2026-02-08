@@ -1,0 +1,167 @@
+:root {
+  --gold: #c9a23f;
+  --black: #111;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: var(--black);
+  color: var(--gold);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 45px;
+}
+
+nav a {
+  color: var(--gold);
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0,0,0,0.6);
+  height: 100%;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--gold);
+}
+
+.hero p {
+  margin: 15px 0;
+  font-size: 1.2rem;
+}
+
+/* BUTTON */
+.btn {
+  padding: 12px 25px;
+  background: var(--gold);
+  color: var(--black);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.dark-btn {
+  background: var(--black);
+  color: var(--gold);
+}
+
+/* SECTIONS */
+.section {
+  padding: 60px 15%;
+  text-align: center;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+  color: var(--gold);
+}
+
+.dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+  border: 2px solid var(--gold);
+  border-radius: 6px;
+}
+
+/* FORM */
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 15px;
+  padding: 12px;
+}
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  color: var(--gold);
+  text-align: center;
+  padding: 15px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: var(--black);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+  }
+
+  nav a {
+    padding: 10px;
+    border-top: 1px solid var(--gold);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
